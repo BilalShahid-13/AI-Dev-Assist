@@ -1,0 +1,21 @@
+import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SignIn from './components/Authentication/SignIn/Signin';
+import SignUp from './components/Authentication/SignUp/SignUp'
+
+
+function App() {
+  return (
+    <>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+}
+
+export default App;
