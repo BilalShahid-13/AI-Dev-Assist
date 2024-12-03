@@ -39,7 +39,7 @@ export default function SignUp() {
         if (!name) {
             setNameError('Name is required.');
             valid = false;
-        } 
+        }
         else {
             setNameError('');
         }
@@ -47,11 +47,11 @@ export default function SignUp() {
         if (!email) {
             setEmailError('Email is required.');
             valid = false;
-        } 
+        }
         else if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email)) {
             setEmailError('Please enter a valid email.');
             valid = false;
-        } 
+        }
         else {
             setEmailError('');
         }
@@ -59,11 +59,11 @@ export default function SignUp() {
         if (!password) {
             setPasswordError('Password is required.');
             valid = false;
-        } 
+        }
         else if (password.length < 8) {
             setPasswordError('Password must be at least 8 characters long.');
             valid = false;
-        } 
+        }
         else {
             setPasswordError('');
         }
