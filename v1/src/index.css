@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --primary-color: #f9e9d6;
+  --primary-hover-color: #dbcbb8;
+  --img-size-md: 144px;
+  --img-size-lg: 36px;
+}
+
+body {
+  margin: 0;
+  font-family: "MyCustomFont", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.primary-button {
+  @apply bg-[--primary-color] hover:bg-[--primary-hover-color] hover:text-[#363332] text-[#363332] transition-all ease-linear duration-200 shadow-sm hover:shadow-[--primary-hover-color];
+}
+
+.img {
+  @apply max-md:w-[--img-size-md] object-contain h-12;
+}

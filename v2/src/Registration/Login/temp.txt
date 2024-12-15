@@ -1,0 +1,87 @@
+ <Flex w={'70%'}>
+          <FormControl gap={'6vh'}
+            display={'flex'}
+            flexDirection={'column'}
+            px={'3vw'}>
+            {/* login heading */}
+            <Box w={'fit-content'} justifyContent={'center'}
+              alignItems={'center'}
+              display={'flex'} flexDirection={'column'} gap={2}>
+              <Heading fontFamily={'Montserrat'}
+                fontWeight={'bold'}
+                fontSize={{ md: '4xl', lg: '6xl', base: '4xl' }}
+              >Login</Heading>
+              <Divider
+                borderWidth={'2.5px'}
+                borderColor={'#000000'}
+                w={'50%'} rounded={'full'}
+
+              />
+            </Box>
+            {/* username */}
+            <InputGroup flexDirection="column">
+              <FormLabel fontFamily={'Montserrat'}>Username</FormLabel>
+              <InputGroup>
+                <InputLeftElement pointerEvents="none">
+                  <Icon as={CircleUserRound}
+                    color={'gray.900'}
+                  />
+                </InputLeftElement>
+                <Input type="text" fontFamily={'Montserrat'}
+                  placeholder="username"
+                  border='none' rounded='none'
+                  borderBottom={'1px solid #333'}
+                  outline={'none'}
+                  textColor={'gray.500'}
+                  _focus={{
+                    outline: "none",
+                    boxShadow: "none",
+                  }}
+                  _hover={{
+                    borderBottom: "1px solid blue",
+                  }}
+                />
+              </InputGroup>
+            </InputGroup>
+            {/* password */}
+            <InputGroup flexDirection="column">
+              <FormLabel fontFamily={'Montserrat'}>Password</FormLabel>
+              <InputGroup>
+                <InputLeftElement pointerEvents="none">
+                  <Icon as={Lock} color={'gray.900'} />
+                </InputLeftElement>
+                <Input type="password" placeholder="username"
+                  border='none' rounded='none'
+                  textColor={'gray.500'}
+                  borderBottom={'1px solid #333'}
+                  outline={'none'}
+                  _focus={{
+                    outline: "none",
+                    boxShadow: "none",
+                  }}
+                  _hover={{
+                    borderBottom: "1px solid blue",
+                  }} />
+              </InputGroup>
+            </InputGroup>
+
+            <Button fontFamily={'Montserrat'} rounded={'full'}
+              bgColor={'gray.800'} textColor={'white'}
+              py={{ md: 6, lg: 8, base: 6 }}
+              mx={'5vw'}
+              _hover={{
+                bgColor: 'gray.900',
+              }}
+              transition={'all 0.3s ease'}>Log In</Button>
+
+            <Text display={'flex'} flexDirection={'row'} gap='1'
+              textAlign={'center'} w={'100%'}
+              justifyContent={'center'}
+            >Dont have an account <Text
+              fontWeight={'semibold'}
+              _hover={{
+                color: 'blue',
+                cursor: 'pointer'
+              }}>Sign Up</Text> ?</Text>
+          </FormControl>
+        </Flex>
