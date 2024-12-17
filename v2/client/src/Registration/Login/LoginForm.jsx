@@ -23,11 +23,51 @@ import SocialButtons from "../../Components/SocialBtn/SocialButtons";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../../Redux/LoginAuth/authslice.jsx';
+
 const LoginPage = () => {
   // login value
   const [login, setLogin] = useState({ username: '', password: '' });
   const [error, setError] = useState({ username: '', password: '' })
   const [timeoutId, setTimeoutId] = useState(null);
+
+  //Redux Logic
+  const dispatch = useDispatch();
+  // const { loading } = useSelector((state) => state.auth);
+
+  // Input change handler
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setLogin((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+
+    const newTimeoutId = setTimeout(() => {
+      if (name === 'username') {
+        const usernameValidation = checkUsername(value);
+        setError((prevError) => ({ ...prevError, username: usernameValidation.error }));
+      }
+    }, 500);
+
+    // Store the new timeout ID
+    setTimeoutId(newTimeoutId);
+  };
+
+  // Handle login button click
+  const handleLogin = (e) => {
+    e.preventDefault();
+    dispatch(loginUser({ username: login.username, password: login.password }));
+  };
+
+
+
+
+
   // animations value
   const [randomX, setRandomX] = useState([0, 20, -20, 20]);
   const [randomY, setRandomY] = useState([0, 20, -20, 20]);
@@ -183,26 +223,6 @@ const LoginPage = () => {
     return { error: '', color: 'green' };
   }
 
-  const handleInput = (e) => {
-    const { name, value } = e.target;
-    setLogin({ ...login, [name]: value });
-    if (timeoutId) {
-      clearTimeout(timeoutId);
-    }
-
-    const newTimeoutId = setTimeout(() => {
-      if (name === 'username') {
-        const usernameValidation = checkUsername(value);
-        setError({ ...error, username: usernameValidation.error });
-      } else {
-        // setError({ username: usernameValidation.error });
-      }
-    }, 500);
-
-    // Store the new timeout ID
-    setTimeoutId(newTimeoutId);
-  };
-
 
   return (
     <>
@@ -296,6 +316,8 @@ const LoginPage = () => {
                     />
                   </InputGroup>
                 </InputGroup>
+                {error.username && <Text color="red" fontSize="sm">{error.username}</Text>}
+
                 {/* password */}
                 <InputGroup flexDirection="column">
                   <FormLabel fontFamily={'Montserrat'}>Password</FormLabel>
@@ -330,7 +352,10 @@ const LoginPage = () => {
                 _hover={{
                   bgColor: 'blue.900',
                 }}
-                transition={'all 0.3s ease'} ref={loginBtnRef}>Log In</Button>
+                transition={'all 0.3s ease'} ref={loginBtnRef} onClick={handleLogin}>Log In</Button>
+
+
+
               <Box display={'flex'} flexDirection={'row'}
                 justifyContent={'center'} alignItems={'center'} gap={6}>
                 {/* google */}
