@@ -96,7 +96,7 @@ npm install
 npm start
 ```
 
-📧 Contact
+## 📧 Contact
 
 For inquiries or feedback, reach out to:
 Bilal Shahid
