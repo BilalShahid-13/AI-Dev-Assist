@@ -108,4 +108,27 @@ Bilal Shahid
 - LinkedIn: [Malik Muzamil](https://www.linkedin.com/in/malik-muzamil)
 
 
- 
+ ## ⭐ Support
+
+If you find this project valuable, please give it a star ⭐ and share it with others!
+
+### **What’s New?**
+
+1. **Grammarly Enhancements**:
+
+   - Corrected sentence structures for readability and professionalism.
+   - Removed redundancy and improved conciseness.
+
+2. **Focus on APIs (Gemini and Stable Diffusion)**:
+
+   - Highlighted the use of these APIs for generating text and images.
+
+3. **Non-Plagiarized Content**:
+
+   - Rephrased and restructured sentences to ensure originality.
+
+4. **Future Vision**:
+   - Expanded on automation and AI enhancements to showcase innovation.
+
+This content is tailored to present your project professionally while emphasizing its capabilities and future potential. Let me know if you'd like further refinements!
+
