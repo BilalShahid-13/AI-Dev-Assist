@@ -25,7 +25,7 @@ const Navbar = () => {
   const faviconRef = useRef();
 
   useEffect(() => {
-    DesktopNavbarAnimation(faviconRef, navbarItemsRef, startBtnRef, navbarMenuRef);
+    // DesktopNavbarAnimation(faviconRef, navbarItemsRef, startBtnRef, navbarMenuRef);
   }, [])
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -122,7 +122,8 @@ const Navbar = () => {
 
           {/* Registration Buttons */}
           <Flex gap="1vw" fontFamily={'Montserrat'}
-            ref={startBtnRef}>
+            // ref={startBtnRef}
+            >
             <ChakraLink as={ReactRouterLink}
               bgColor="white"
               textColor="black" rounded={'full'}
@@ -133,7 +134,7 @@ const Navbar = () => {
               }}
               py={'1.5vh'}
               px={'2vw'}
-              to="/register/"
+              to="/register"
               transition={
                 'all 0.3s ease-in-out'
               }
