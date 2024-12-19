@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Link as ChakraLink, Button, useBreakpointValue, Icon } from '@chakra-ui/react'
+import { Box, Flex, Heading, Link as ChakraLink, Button, useBreakpointValue, Icon, Link } from '@chakra-ui/react'
 import React, { useEffect, useRef, useState } from 'react'
 import { Link as ReactRouterLink, useNavigate } from 'react-router-dom'
 import { NavbarItems } from '../assets/Constants'
@@ -123,20 +123,23 @@ const Navbar = () => {
           {/* Registration Buttons */}
           <Flex gap="1vw" fontFamily={'Montserrat'}
             ref={startBtnRef}>
-            <Button bgColor="white" textColor="black" rounded={'full'}
+            <ChakraLink as={ReactRouterLink}
+              bgColor="white"
+              textColor="black" rounded={'full'}
               boxShadow={'0px 0px 30px 7px rgba(32, 37, 255,0.5)'}
               _hover={{
                 bgColor: '#9043e1',
                 textColor: '#e1e4f0'
               }}
+              py={'1.5vh'}
+              px={'2vw'}
+              to="/register/"
               transition={
                 'all 0.3s ease-in-out'
               }
-              onClick={() => {
-                navigate('/register')
-              }}>
+            >
               Start for Free
-            </Button>
+            </ChakraLink>
             {/* <Button bgColor="white" textColor="black">
               SignIn
             </Button> */}
