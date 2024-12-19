@@ -133,7 +133,7 @@ const Navbar = () => {
                 'all 0.3s ease-in-out'
               }
               onClick={() => {
-                navigate('/register/signup')
+                navigate('/register')
               }}>
               Start for Free
             </Button>
