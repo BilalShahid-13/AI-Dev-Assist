@@ -1,3 +1,4 @@
+[![App Platorm](https://raw.githubusercontent.com/BilalShahid-13/Contenium/c8f19ad8961fbdf5fa59abceb0d1eadc64e70654/v3/client/public/logo.svg)](https://github.com/BilalShahid-13/Contenium)
 # AI-Based Smart Content Generation System
 
 Welcome to the **AI-Based Smart Content Generation System**!  
