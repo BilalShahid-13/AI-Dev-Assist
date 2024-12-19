@@ -50,11 +50,11 @@ const Hero = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Spline
+        {/* <Spline
           scene="https://prod.spline.design/DOhqooabx-5xIOp3/scene.splinecode"
           style={{ width: '100%', height: '100%' }}
-        />
-        {/* <img src='image.png'/> */}
+        /> */}
+        <img src='image.png'/>
       </Flex>
       <Flex display={'flex'}
         flexDirection={{ md: 'row', lg: 'row', base: 'column' }}
