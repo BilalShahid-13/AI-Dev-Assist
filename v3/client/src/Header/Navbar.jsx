@@ -25,11 +25,11 @@ const Navbar = () => {
   const faviconRef = useRef();
 
   useEffect(() => {
-    // DesktopNavbarAnimation(faviconRef, navbarItemsRef, startBtnRef, navbarMenuRef);
+    DesktopNavbarAnimation(faviconRef, navbarItemsRef, startBtnRef, navbarMenuRef);
   }, [])
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    !isMobileView && ToggleMenu(navbarMenuRef, isOpen, navbarItemsRef, startBtnRef);
+    isMobileView && ToggleMenu(navbarMenuRef, isOpen, navbarItemsRef, startBtnRef);
   }
   return (
     <>
@@ -57,7 +57,7 @@ const Navbar = () => {
           <Flex alignItems="center"
             justifyContent={{ base: 'space-between' }}
             display={'flex'}
-            flexDir={{ md: 'row', md: 'row', lg: 'row' }}
+            flexDir={{ md: 'row', base: 'row', lg: 'row' }}
             // bgColor={'red'}
             w={{ base: '90%', lg: '140px' }}
             gap={'1vw'} ref={faviconRef}>
@@ -121,10 +121,10 @@ const Navbar = () => {
 
           {/* Registration Buttons */}
           <Flex gap="1vw" fontFamily={'Montserrat'}
-          // ref={startBtnRef}
+          ref={startBtnRef}
           >
             <ChakraLink as={ReactRouterLink}
-              to="/register"
+              to="/register/signup"
               bgColor="white"
               textColor="black" rounded={'full'}
               boxShadow={'0px 0px 30px 7px rgba(32, 37, 255,0.5)'}
@@ -141,10 +141,10 @@ const Navbar = () => {
             >
               Start for Free
             </ChakraLink>
-            <Button bgColor="white" textColor="black"
+            {/* <Button bgColor="white" textColor="black"
             onClick={()=>navigate('/register')}>
               SignIn
-            </Button>
+            </Button> */}
           </Flex>
         </Flex>
       </Flex >
