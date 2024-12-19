@@ -1,6 +1,6 @@
 [![App Platorm](https://raw.githubusercontent.com/BilalShahid-13/Contenium/c8f19ad8961fbdf5fa59abceb0d1eadc64e70654/v3/client/public/logo.svg)](https://github.com/BilalShahid-13/Contenium)
 https://res.cloudinary.com/dbsxojyxy/image/upload/v1734649573/fyp/contenium.vercel.app-Contenium_ymrwkk.png
-Check out my website: [My Website]([https://your-website-url.com](https://contenium.vercel.app/)) ![Website Preview]([https://github.com/your-username/your-repo/blob/main/path-to-your-gif-or-image.gif](https://res.cloudinary.com/dbsxojyxy/image/upload/v1734649573/fyp/contenium.vercel.app-Contenium_ymrwkk.png
+* [Your GitHub Pages URL and adding preview to your README.md](https://res.cloudinary.com/dbsxojyxy/image/upload/v1734649573/fyp/contenium.vercel.app-Contenium_ymrwkk.png)
 ))
 # AI-Based Smart Content Generation System
 
