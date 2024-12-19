@@ -103,7 +103,6 @@ const Navbar = () => {
               <ChakraLink
                 as={ReactRouterLink}
                 to={items.link}
-
                 key={index}
                 textColor={'#f6f7f8'}
                 textDecoration={'none'}
@@ -122,9 +121,10 @@ const Navbar = () => {
 
           {/* Registration Buttons */}
           <Flex gap="1vw" fontFamily={'Montserrat'}
-            // ref={startBtnRef}
-            >
+          // ref={startBtnRef}
+          >
             <ChakraLink as={ReactRouterLink}
+              to="/register"
               bgColor="white"
               textColor="black" rounded={'full'}
               boxShadow={'0px 0px 30px 7px rgba(32, 37, 255,0.5)'}
@@ -134,16 +134,17 @@ const Navbar = () => {
               }}
               py={'1.5vh'}
               px={'2vw'}
-              to="/register"
+
               transition={
                 'all 0.3s ease-in-out'
               }
             >
               Start for Free
             </ChakraLink>
-            {/* <Button bgColor="white" textColor="black">
+            <Button bgColor="white" textColor="black"
+            onClick={()=>navigate('/register')}>
               SignIn
-            </Button> */}
+            </Button>
           </Flex>
         </Flex>
       </Flex >
