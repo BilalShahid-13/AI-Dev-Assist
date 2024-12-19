@@ -1,8 +1,8 @@
 [![App Platorm](https://raw.githubusercontent.com/BilalShahid-13/Contenium/c8f19ad8961fbdf5fa59abceb0d1eadc64e70654/v3/client/public/logo.svg)](https://github.com/BilalShahid-13/Contenium)
-https://res.cloudinary.com/dbsxojyxy/image/upload/v1734649573/fyp/contenium.vercel.app-Contenium_ymrwkk.png
-* [Your GitHub Pages URL and adding preview to your README.md](https://res.cloudinary.com/dbsxojyxy/image/upload/v1734649573/fyp/contenium.vercel.app-Contenium_ymrwkk.png)
-))
 # AI-Based Smart Content Generation System
+
+![Alt Text](https://res.cloudinary.com/dbsxojyxy/image/upload/v1734650760/fyp/contenium_hero_gzv5oc.gif)
+
 
 Welcome to the **AI-Based Smart Content Generation System**!  
 This project leverages advanced AI technologies to simplify content creation for **developers** and **content creators**. Whether you're a developer seeking automated documentation or a content creator in need of tailored text and images, our system provides seamless solutions.
