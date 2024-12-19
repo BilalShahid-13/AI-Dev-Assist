@@ -1,6 +1,6 @@
 import { Box, Flex, Heading, Link as ChakraLink, Button, useBreakpointValue, Icon } from '@chakra-ui/react'
 import React, { useEffect, useRef, useState } from 'react'
-import { Link as ReactRouterLink } from 'react-router-dom'
+import { Link as ReactRouterLink, useNavigate } from 'react-router-dom'
 import { NavbarItems } from '../assets/Constants'
 import { RiMenu3Line } from "react-icons/ri";
 import { ToggleMenu } from '../Animations/Navbar/ToggleMenu';
@@ -9,6 +9,9 @@ import { DesktopNavbarAnimation } from '../Animations/Navbar/DesktopNavbarAnimat
 const Navbar = () => {
   const isMobileView = useBreakpointValue({ base: true, lg: false, md: false }, { ssr: false })
   const [isOpen, setIsOpen] = useState(false);
+
+  // navigate router
+  const navigate = useNavigate()
   // for mobile
   // menu ref
   const navbarMenuRef = useRef();
@@ -22,7 +25,7 @@ const Navbar = () => {
   const faviconRef = useRef();
 
   useEffect(() => {
-    DesktopNavbarAnimation(faviconRef, navbarItemsRef, startBtnRef,navbarMenuRef);
+    DesktopNavbarAnimation(faviconRef, navbarItemsRef, startBtnRef, navbarMenuRef);
   }, [])
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -128,7 +131,10 @@ const Navbar = () => {
               }}
               transition={
                 'all 0.3s ease-in-out'
-              }>
+              }
+              onClick={() => {
+                navigate('/register/signup')
+              }}>
               Start for Free
             </Button>
             {/* <Button bgColor="white" textColor="black">

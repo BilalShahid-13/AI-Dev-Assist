@@ -1,13 +1,14 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import RegistrationRoute from './Registration/RegistrationRoute';
 import Home from './Pages/Home';
 import Navbar from './Header/Navbar';
 
 const App = () => {
+  const location = useLocation()
   return (
     <>
-      <Navbar />
+      {!location.pathname.startsWith('/register') && <Navbar />}
       <Routes>
         <Route path='/register/*' element={<RegistrationRoute />} />
         <Route path='/' element={<Home />} />
