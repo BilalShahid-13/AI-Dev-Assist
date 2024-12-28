@@ -1,10 +1,7 @@
-import { Box, Divider, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Link as ChakraLink } from '@chakra-ui/react'
-import Particles from '@/components/ui/particles'
 import DotPattern from '@/components/ui/dot-pattern'
 import { cn } from '@/lib/utils'
+import { Box, Link as ChakraLink, Divider, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
 export const FooterSection = () => {
   function Footer() {
