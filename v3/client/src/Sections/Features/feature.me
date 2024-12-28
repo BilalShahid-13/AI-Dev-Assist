@@ -1,0 +1,31 @@
+  <Grid
+          templateColumns={{
+            lg: 'repeat(3, 1fr)',
+            md: 'repeat(2, 1fr)',
+            base: 'repeat(1, 1fr)'
+          }} gap={6} justifyContent="center" // Center grid items horizontally
+          alignItems="center">
+          {Features.map((item, index) => (
+            <GridItem key={index} mx={{base:'3%'}}
+              bgColor={'rgba(22, 26, 51,0.8)'}
+              border={'1px solid #1c2034'}
+              boxShadow={'0 4px 4px 3px rgba(28, 32, 52,0.4)'}
+              p={{ lg: '1vw', base: '1.5vw' }} display={'flex'} flexDir={'column'}
+              justifyContent={'flex-start'} alignItems={'flex-start'}
+              gap={'2vh'} blur={'20px'}
+              rounded={'lg'}>
+              <Box bgColor={'rgba(60, 28, 189,0.9)'} blur={'20px'}
+                w={{ md: '', lg: 'fit-content' }} p={'1.5vh'} rounded={'md'}>
+                <Icon as={item.icon} fontSize={{ lg: '30px', base: '35px' }}
+                  textColor={'white'} />
+              </Box>
+              <Heading fontSize={{ md: 'xl', lg: '2xl', base: 'md' }}
+                fontFamily={'Montserrat'} textColor={'gray.100'}>{item.title}</Heading>
+              <Text textColor={'gray.300'}
+                fontFamily={'Montserrat'}
+                fontSize={{ md: 'xl', lg: 'md', base: 'md' }}
+              >{item.description}</Text>
+            </GridItem>
+          ))
+          }
+        </Grid>

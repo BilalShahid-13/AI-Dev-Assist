@@ -1,19 +1,21 @@
-import React, { useEffect, useRef } from 'react'
-import Spline from '@splinetool/react-spline';
 import { Box, Button, Flex, Heading, Text, useBreakpointValue } from '@chakra-ui/react';
-import VerticleMarquee from '../../Components/Marquee/VerticleMarquee';
 import { Canvas } from '@react-three/fiber';
-import Cube from '../../Registration/Components/Cube';
-import AnimatedBoxes from './components/AnimatedBoxex';
-import HorizontalMarquee from '../../Components/Marquee/HorizontalMarquee';
+import gsap from 'gsap';
+import { memo, useEffect, useRef } from 'react';
 import { HiOutlineArrowDownRight } from "react-icons/hi2";
+import ContentAnimation from '../../Animations/Hero/ContentAnimation';
+import { HorizontalAnimation } from '../../Animations/Hero/HorizontalAnimation';
 import { ProductAnimation } from '../../Animations/Hero/ProductAnimation';
 import { VerticalMarqueAnimation } from '../../Animations/Hero/VerticalMarqueAnimation';
-import ContentAnimation from '../../Animations/Hero/ContentAnimation';
-import gsap from 'gsap';
-import { HorizontalAnimation } from '../../Animations/Hero/HorizontalAnimation';
-const Hero = () => {
-
+import { HeroImages } from '../../assets/Constants';
+import Cards from '../../components/Cards';
+import HorizontalMarquee from '../../components/Marquee/HorizontalMarquee';
+import VerticleMarquee from '../../components/Marquee/VerticleMarquee';
+import Cube from '../../Registration/Components/Cube';
+import AnimatedBoxes from './components/AnimatedBoxex';
+const HeroSection = () => {
+  const MemoizedMarqueeCards = memo(MarqueeCards);
+  const MemoizedVerticleMarquee = memo(VerticleMarquee);
   // lear more ref
   const productRef = useRef();
   const productDesRef = useRef();
@@ -36,6 +38,16 @@ const Hero = () => {
     ContentAnimation(timeline, headlineRef, descriptionRef, btnRef)
   }, [])
 
+  function MarqueeCards() {
+    return (
+      <Flex gap={'2vw'}>
+        {HeroImages.map((img, index) => (
+          <Cards key={index} img={img} w={'120px'} />
+        ))}
+      </Flex>
+    )
+  }
+
 
   return (
     <>
@@ -45,26 +57,30 @@ const Hero = () => {
         bgColor="#070707"
         top={0}
         left={0}
-        h="100%"
+        h="100vh"
         w="100%"
+        overflow={'hidden'}
         justifyContent="center"
         alignItems="center"
       >
-        <Spline
+        {/* <Spline
           scene="https://prod.spline.design/DOhqooabx-5xIOp3/scene.splinecode"
-          style={{ width: '100%', height: '100%' }}
-        />
-        {/* <img src='image.png'/> */}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        /> */}
+        <img src='image.png' style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
       </Flex>
       <Flex display={'flex'}
         flexDirection={{ md: 'row', lg: 'row', base: 'column' }}
-        h={'100%'} position="relative"
+        position="relative"
         fontFamily={'Montserrat'}
         gap={'3vh'}
         py={{ base: '2vh' }}
+        h={'100%'}
+      // overflow={'hidden'}
       >
         {/* product support */}
-        <Flex display={{ md: 'flex', lg: 'flex', base: 'none' }} flexDir={'column'}
+        <Flex display={{ md: 'flex', lg: 'flex', base: 'none' }}
+          flexDir={'column'}
           justifyContent={'space-between'} alignItems={'center'}
           ref={productRef}>
           <Flex display={'flex'} flexDir={'column'} mt={'2vh'}
@@ -94,15 +110,13 @@ const Hero = () => {
         </Flex>
         {/* Marquee Section */}
         <Flex
-          h={'80%'}
+          h={'40vh'}
           display={{ md: 'flex', lg: 'flex', base: 'none' }}
           w={{ lg: '20%', md: '30%' }}
           ref={VerticalMarqueeRef}
           alignItems={'center'}  // Vertically align the marquee content
         >
-          <VerticleMarquee
-          // ref={VerticalMarqueeRef}
-          />
+          <MemoizedVerticleMarquee />
         </Flex>
 
         {/* Content Section */}
@@ -121,7 +135,7 @@ const Hero = () => {
             justifyContent="center" alignItems="center"
             flexDirection={{ md: 'column', base: 'column', lg: 'row' }}
             gap={{ lg: '2vw' }} ref={headlineRef}>
-            <Box w={{ lg: '10%', md: 'full', base: 'full' }}>
+            <Box w={{ lg: '10%', md: '30%', base: '30%' }}>
               <Canvas>
                 <ambientLight />
                 <pointLight position={[10, 10, 10]} />
@@ -205,11 +219,16 @@ const Hero = () => {
           alignItems={'center'}  // Vertically align the marquee content
           ref={HorizontalMarqueeRef}
         >
-          <HorizontalMarquee />
+          <HorizontalMarquee
+            marque={<Flex>
+              <MemoizedMarqueeCards />
+              <MemoizedMarqueeCards />
+            </Flex>
+            } />
         </Flex>
       </Flex>
     </>
   )
 }
 
-export default Hero
+export default HeroSection

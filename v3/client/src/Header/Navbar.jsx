@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Link as ChakraLink, Button, useBreakpointValue, Icon, Link } from '@chakra-ui/react'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { Link as ReactRouterLink, useNavigate } from 'react-router-dom'
 import { NavbarItems } from '../assets/Constants'
 import { RiMenu3Line } from "react-icons/ri";
@@ -10,6 +10,7 @@ const Navbar = () => {
   const isMobileView = useBreakpointValue({ base: true, lg: false, md: false }, { ssr: false })
   const [isOpen, setIsOpen] = useState(false);
 
+  const MemoizedNavbarItems = useMemo(() => NavbarItems, [NavbarItems]);
   // navigate router
   const navigate = useNavigate()
   // for mobile
@@ -33,7 +34,8 @@ const Navbar = () => {
   }
   return (
     <>
-      <Flex justifyContent={'center'} alignItems={'center'} w="100%" pt={'1vh'}>
+      <Flex justifyContent={'center'} alignItems={'center'}
+        w="100%" pt={'1vh'} position={'relative'} zIndex={20}>
         <Flex
           ref={navbarMenuRef}
           bgColor={'rgba(24, 29, 61,0.5)'}
@@ -99,7 +101,7 @@ const Navbar = () => {
           <Flex gap={'2vw'} fontFamily={'Montserrat'}
             display={'flex'} ref={navbarItemsRef}
             flexDir={{ md: 'row', lg: 'row', base: 'column' }}>
-            {NavbarItems.map((items, index) => (
+            {MemoizedNavbarItems.map((items, index) => (
               <ChakraLink
                 as={ReactRouterLink}
                 to={items.link}
@@ -121,7 +123,7 @@ const Navbar = () => {
 
           {/* Registration Buttons */}
           <Flex gap="1vw" fontFamily={'Montserrat'}
-          ref={startBtnRef}
+            ref={startBtnRef}
           >
             <ChakraLink as={ReactRouterLink}
               to="/register/signup"
@@ -133,18 +135,15 @@ const Navbar = () => {
                 textColor: '#e1e4f0'
               }}
               py={'1.5vh'}
-              px={'2vw'}
+              px={{ lg: '2vw', base: '4vw' }}
 
               transition={
                 'all 0.3s ease-in-out'
               }
+              fontSize={{ lg: 'lg', base: 'xs' }}
             >
               Start for Free
             </ChakraLink>
-            {/* <Button bgColor="white" textColor="black"
-            onClick={()=>navigate('/register')}>
-              SignIn
-            </Button> */}
           </Flex>
         </Flex>
       </Flex >
