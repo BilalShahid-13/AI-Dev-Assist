@@ -16,11 +16,13 @@ const ServicesSection = () => {
             key={index}
             bgColor={'rgba(26, 28, 43,0.6)'}
             blur={'10px'}
-            py={{ lg: '2vh', base: '2vh' }}
-            px={'1vw'}
-            mx={{ lg: '1vw' }}
+            py={{ lg: '2vh', base: '1vh' }}
+            px={{ base: '1.5vw', lg: '1vw' }}
+            mx={{ lg: '0.2vw' }}
             border={'1px solid #131224'}
             rounded={'lg'}
+            justifyContent={'center'}
+            alignItems={'center'}
             _hover={{
               border: '1px solid #2c0b82',
               cursor: 'pointer'
@@ -29,8 +31,8 @@ const ServicesSection = () => {
           >
             <Image
               src={img.img}
-              w={{ lg: '100%', base: '100%' }}
-              h={{ lg: '10vh', base: '5vh' }}
+              w={{ lg: '10vw', base: '28vw' }}
+              // h={{ lg: '10vh', base: '5vh' }}
               objectFit={'cover'}
             />
           </Flex>
@@ -41,22 +43,17 @@ const ServicesSection = () => {
   }
 
   function MarqueeCard() {
-    return (<div className="dark relative flex
+    return (<div className="dark *:relative flex
     h-auto w-full flex-col items-center
     justify-center overflow-hidden rounded-lg
     bg-[#080219] md:shadow-xl">
-      <Marquee pauseOnHover className="[--duration:70s]">
-        {MemoizedServicesImage.map((img, index) => (
-          <TooltipCard img={img} index={index} />
-        ))}
-      </Marquee>
       <Marquee reverse pauseOnHover className="[--duration:70s]">
         {MemoizedServicesImage.map((img, index) => (
           TooltipCard(img, index)
         ))}
       </Marquee>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background"></div>
     </div>
     )
   }
@@ -92,17 +89,7 @@ const ServicesSection = () => {
         fontfamily={'Montserrat'}>Powered by Cutting-Edge AI</Text>
       <Technologies />
       <Flex my={'2vh'}>
-        <HorizontalMarquee
-          marque={
-            <Flex gap={'2vw'} justifyContent={'center'}
-              alignItems={'center'} display={'flex'}
-              flexDir={'row'} px={'2vw'}>
-              {/* <MemoizedMarqueeCards /> */}
-              {/* <MemoizedMarqueeCards /> */}
-              <MemoizedMarqueeCards />
-            </Flex>
-          }
-          pauseOnHover={true} />
+        <MemoizedMarqueeCards />
       </Flex>
     </Flex>
   )

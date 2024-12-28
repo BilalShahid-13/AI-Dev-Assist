@@ -13,6 +13,8 @@ import HorizontalMarquee from '../../components/Marquee/HorizontalMarquee';
 import VerticleMarquee from '../../components/Marquee/VerticleMarquee';
 import Cube from '../../Registration/Components/Cube';
 import AnimatedBoxes from './components/AnimatedBoxex';
+import Marquee from '@/components/ui/marquee';
+import Spline from '@splinetool/react-spline';
 const HeroSection = () => {
   const MemoizedMarqueeCards = memo(MarqueeCards);
   const MemoizedVerticleMarquee = memo(VerticleMarquee);
@@ -40,11 +42,9 @@ const HeroSection = () => {
 
   function MarqueeCards() {
     return (
-      <Flex gap={'2vw'}>
-        {HeroImages.map((img, index) => (
-          <Cards key={index} img={img} w={'120px'} />
-        ))}
-      </Flex>
+      HeroImages.map((img, index) => (
+        <Cards key={index} img={img} w={'120px'} />
+      ))
     )
   }
 
@@ -65,7 +65,7 @@ const HeroSection = () => {
       >
         {/* <Spline
           scene="https://prod.spline.design/DOhqooabx-5xIOp3/scene.splinecode"
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
         /> */}
         <img src='image.png' style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
       </Flex>
@@ -83,7 +83,8 @@ const HeroSection = () => {
           flexDir={'column'}
           justifyContent={'space-between'} alignItems={'center'}
           ref={productRef}>
-          <Flex display={'flex'} flexDir={'column'} mt={'2vh'}
+          <Flex display={'flex'} flexDir={'column'}
+            mt={'2vh'}
             justifyContent={'center'} alignItems={'center'} gap={'2vh'}>
             <Text bgGradient={'linear(to-b, #8d94bc, #8b85aa)'}
               bgClip="text" flexWrap={'nowrap'}
@@ -110,13 +111,19 @@ const HeroSection = () => {
         </Flex>
         {/* Marquee Section */}
         <Flex
-          h={'40vh'}
           display={{ md: 'flex', lg: 'flex', base: 'none' }}
           w={{ lg: '20%', md: '30%' }}
+          h={'auto'}
           ref={VerticalMarqueeRef}
-          alignItems={'center'}  // Vertically align the marquee content
+          alignItems={'center'}
         >
-          <MemoizedVerticleMarquee />
+          <div className="dark relative h-[85vh] flex flex-row items-center justify-center overflow-hidden md:shadow-xl">
+            <Marquee pauseOnHover vertical className="[--duration:30s]">
+              <MemoizedMarqueeCards />
+            </Marquee>
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-background dark:from-background"></div>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background dark:background"></div>
+          </div>
         </Flex>
 
         {/* Content Section */}
@@ -219,12 +226,13 @@ const HeroSection = () => {
           alignItems={'center'}  // Vertically align the marquee content
           ref={HorizontalMarqueeRef}
         >
-          <HorizontalMarquee
-            marque={<Flex>
+          <div className="dark relative flex w-full flex-col items-center justify-center overflow-hidden bg-background md:shadow-xl">
+            <Marquee pauseOnHover className="[--duration:20s]">
               <MemoizedMarqueeCards />
-              <MemoizedMarqueeCards />
-            </Flex>
-            } />
+            </Marquee>
+          </div>
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-[#241445] dark:from-background"></div>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#241445] dark:from-background"></div>
         </Flex>
       </Flex>
     </>

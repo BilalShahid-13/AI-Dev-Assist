@@ -34,7 +34,8 @@ const NavbarItems = [
 ];
 import { CiViewTimeline } from "react-icons/ci";
 import { FaRegLightbulb } from "react-icons/fa";
-import { PiPaintBrushDuotone } from "react-icons/pi";
+import { IoDocumentTextOutline } from "react-icons/io5";
+
 const Features = [
   {
     icon: CiViewTimeline,
@@ -79,4 +80,30 @@ const Technologies = [
   },
 ];
 
-export { HeroImages, NavbarItems, ServicesImage, Features, Technologies };
+import { MdOutlineHighQuality } from "react-icons/md";
+import { PiPaintBrushDuotone } from "react-icons/pi";
+import { RiAiGenerate2 } from "react-icons/ri";
+
+const MagicCardContent = [
+  {
+    icon: MdOutlineHighQuality,
+    text: "Generate high-quality text and images.",
+  },
+  {
+    icon: IoDocumentTextOutline,
+    text: "Experience code-to-documentation capabilities.",
+  },
+  {
+    text: "Explore the power of AI-driven content creation.",
+    icon: RiAiGenerate2,
+  },
+];
+
+export {
+  Features,
+  HeroImages,
+  NavbarItems,
+  ServicesImage,
+  Technologies,
+  MagicCardContent,
+};

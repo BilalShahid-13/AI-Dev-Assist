@@ -152,7 +152,7 @@ const Generative_Ai = () => {
   return (
     <>
       <Flex position={'relative'}
-        bgColor={'#161a33'}
+        bgColor={'rgb(22, 26, 51,0.8)'}
         border={'1px solid rgb(30, 33, 52)'}
         rounded={'lg'}
         h={'100%'}

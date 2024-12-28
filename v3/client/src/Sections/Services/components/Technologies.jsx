@@ -27,7 +27,7 @@ const Technologies = () => {
             className=" border-none bg-transparent flex flex-col"
             duration={15 + (index * 1)}
             delay={20 * (index + 1)}
-            radius={(isSm ? 50 : 80) * (index + 1)}
+            radius={(isSm ? 35 : 80) * (index + 1)}
             key={index}
           >
             <Image src={item.icon}

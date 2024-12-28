@@ -8,6 +8,7 @@ const FeaturesSection = () => {
         display={'flex'} py={'2vh'}
         flexDirection={'column'} justifyContent={'center'}
         alignItems={'center'} gap={'2vh'}
+        position={'relative'}
       // mx={'1vw'}
       >
         <Button bgColor={'#22284c'} textColor={'#4350a4'}

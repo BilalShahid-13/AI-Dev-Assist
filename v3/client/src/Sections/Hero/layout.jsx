@@ -1,6 +1,7 @@
 import { Flex } from '@chakra-ui/react';
-import Feature from '../Features/FeaturesSection';
-import Service from '../Services/ServicesSection';
+import { index as Features } from '../Features/index';
+import PlanSection from '../Plan/PlanSection';
+import ServicesSection from '../Services/ServicesSection';
 import Hero from './HeroSection';
 export const layout = () => {
 
@@ -9,9 +10,11 @@ export const layout = () => {
       <Hero />
       <Flex display={'flex'} flexDirection={'column'}
         position={'relative'} w={'full'}>
-        <Feature />
-        <Service />
+        <Features />
+        <ServicesSection />
+        <PlanSection />
       </Flex>
+
     </>
   );
 };
