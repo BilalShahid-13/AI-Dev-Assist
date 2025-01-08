@@ -8,6 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      // 'prism-react-renderer': require.resolve('prism-react-renderer'),
     },
   },
 });

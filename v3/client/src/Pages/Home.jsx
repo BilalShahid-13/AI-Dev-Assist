@@ -1,4 +1,4 @@
-import { layout as Hero } from '../Sections/Hero/layout';
+import { layout as Hero } from '../Sections/Home/Hero/layout';
 // import Hero from '../Sections/HeroSection/Hero'
 
 const Home = () => {
