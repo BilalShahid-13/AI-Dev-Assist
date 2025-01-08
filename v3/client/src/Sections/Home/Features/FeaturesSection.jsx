@@ -16,10 +16,12 @@ const FeaturesSection = () => {
             bgColor: '#8445c6',
             textColor: 'white'
           }}
+          // zIndex={50}
           py={{ lg: '3vh' }}
           fontSize={{ md: 'xl', lg: '2xl', base: 'md' }}
           transition={'all ease 0.9s'}
-          fontFamily={'Montserrat'}>Features</Button>
+          fontFamily={'Montserrat'}
+          >Features</Button>
         <Text
           textColor={'gray.100'}
           fontSize={{ md: 'xl', lg: '2xl', base: 'md' }}

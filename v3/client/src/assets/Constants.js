@@ -42,6 +42,7 @@ const Features = [
     title: "Code to Documentation",
     description: `Effortlessly transform code snippets into
     comprehensive and professional documentation`,
+    link:'/documentation'
   },
   {
     icon: FaRegLightbulb,

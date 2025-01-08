@@ -6,10 +6,12 @@ import { TbBoxModel } from 'react-icons/tb';
 import { Features } from '../../../../assets/Constants';
 import Card from './Card';
 import Line from './Line';
+import { useNavigate } from 'react-router-dom';
 const Documentation_Creation = () => {
   const cardRef = useRef();
   const boxRef = useRef()
   const sliderRef = useRef();
+  const navigate = useNavigate();
   const [cursorPosition, setCursorPosition] = useState({ x: 0 });
   useEffect(() => {
     const sliderRect = sliderRef.current.getBoundingClientRect();
@@ -112,6 +114,14 @@ const Documentation_Creation = () => {
             <Heading fontWeight={'medium'} bgColor={'#161a33'}
               textColor={'gray.300'}
               fontFamily={'Montserrat'}
+              _hover={{
+                cursor: 'pointer',
+                textDecoration: 'underline'
+              }}
+              onClick={() => {
+                console.log('click')
+                navigate('/documentation')
+              }}
               fontSize={{ lg: 'xl', base: 'md' }}>
               {Features[0].title}
             </Heading>
